@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from mcp.server.fastmcp import FastMCP
 from kakeibo import (
     get_accounts,
-    add_account,
+    create_account,
     add_journal_entry,
     get_journal_entries,
     delete_journal_entry,
@@ -218,7 +218,7 @@ def add_account(account_name: str, account_type: str) -> str:
       account_type: 種別。「資産」「負債」「資本」「収益」「費用」のいずれか
     """
     try:
-        acc = add_account(account_name, account_type)
+        acc = create_account(account_name, account_type)
         return f"✅ 科目「{acc['name']}」（{acc['type']}）を追加しました（ID: {acc['id']}）"
     except ValueError as e:
         return f"❌ エラー: {e}"

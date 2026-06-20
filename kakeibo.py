@@ -83,7 +83,7 @@ def get_account_by_name(name: str) -> Optional[dict]:
     return None
 
 
-def add_account(name: str, account_type: str) -> dict:
+def create_account(name: str, account_type: str) -> dict:
     if account_type not in ACCOUNT_NORMAL_BALANCE:
         raise ValueError(f"種別が不正: {account_type}。使用可能: {list(ACCOUNT_NORMAL_BALANCE.keys())}")
     data = _load()
